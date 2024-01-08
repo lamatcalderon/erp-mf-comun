@@ -1,0 +1,19 @@
+projects:
+  mfcomun:
+    projectName: "mfcomun"
+    sourceProject: "."
+    enviromentSuffix: "crt"
+    withDeploy: true 
+    dockerConfiguration:
+      imageName: ""
+      containerLocalPort: 0
+    artifactConfiguration:
+      repositoryName: "erp-mfcomun-crt"
+      folderDist: "dist"
+    folderDeploy: "apps/intranet/erpperu2-crt/erp-mf-comun"
+    commandsAtInit:
+      - "rm .\\src\\constants\\hostserver.constant.ts"
+      - "mv .\\src\\constants\\hostserver-crt.constant.ts .\\src\\constants\\hostserver.constant.ts"
+
+    
+    

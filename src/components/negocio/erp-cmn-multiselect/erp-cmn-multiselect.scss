@@ -1,0 +1,211 @@
+@import "../../../scss/abstracts/variables";
+
+$font-size-large: $font-size-1920;
+$font-size-medium: $font-size-1366;
+$font-size-small: $font-size-1024;
+
+$border-radius-large: $pix-8;
+$border-radius-medium: $pix-6;
+$border-radius-small: $pix-5;
+
+$height-large: $pix-37;
+$height-medium: $pix-32;
+$height-small: $pix-28;
+
+$erp-cmn-multiselect-border: #a1a1a1;
+$erp-cmn-multiselect-font-color: #2c2424;
+$erp-cmn-multiselect-bg-item: #f2f3f8;
+
+.erp-cmn-multiselect {
+  position: relative;
+  width: $per-100;
+  box-sizing: border-box;
+
+  .erp-cmn-multiselect-contenido {
+    border: $pix-1 solid $erp-cmn-multiselect-border;
+    font-family: $font-alt;
+    cursor: pointer;
+
+    &.is-small {
+      height: $height-small;
+      padding: 0.3rem 0.6rem;
+      font-size: $font-size-small;
+      border-radius: $border-radius-small;
+    }
+
+    &.is-medium {
+      height: $height-medium;
+      padding: 0.6rem;
+      font-size: $font-size-medium;
+      border-radius: $border-radius-medium;
+    }
+
+    &.is-large {
+      height: $height-large;
+      padding: 0.6rem;
+      font-size: $font-size-large;
+      border-radius: $border-radius-large;
+    }
+
+    .erp-cmn-multiselect-display {
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: $per-100;
+      font-family: $font-alt;
+      font-style: normal;
+      font-weight: normal;
+      line-height: $pix-19;
+      color: $erp-cmn-multiselect-font-color;
+    }
+
+    .erp-cmn-multiselect-opciones {
+      align-items: center;
+      
+      .erp-cmn-multiselect-cerrar {
+        &.is-hide {
+          display: none;
+        }
+      }
+      .erp-cmn-multiselect-icon {
+        margin-top: -$pix-2;
+        width: $pix-20;
+      }
+    }
+  }
+
+  .erp-cmn-multiselect-elementos {
+    cursor: pointer;
+    background-color: $white;
+    position: absolute;
+    width: $per-100;
+    padding: $pix-10;
+    border: $pix-1 solid $erp-cmn-multiselect-border;
+    display: none;
+    z-index: 1;
+    max-height: $pix-200;
+    overflow-y: auto;
+
+    &.is-active {
+      display: block;
+    }
+
+    .erp-cmn-multiselect-lista {
+      .erp-cmn-multiselect-item {
+        border-radius: $pix-5;
+        padding: $pix-5;
+
+        .erp-cmn-multiselect-item-texto {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          margin-right: $pix-5;
+          color: $erp-cmn-multiselect-font-color;
+
+          &.is-small {
+            font-size: $font-size-small;
+          }
+
+          &.is-medium {
+            font-size: $font-size-medium;
+          }
+
+          &.is-large {
+            font-size: $font-size-large;
+          }
+        }
+
+        .erp-cmn-multiselect-item-imagen {
+          display: none;
+
+          &.is-active {
+            display: block;
+          }
+        }
+      }
+
+      .erp-cmn-multiselect-item:hover {
+        background-color: $erp-cmn-multiselect-bg-item;
+      }
+    }
+  }
+}
+
+@media screen and(min-width: #{$pix-1}) and (max-width: #{$res-1024}) {
+  .erp-cmn-multiselect {
+    .erp-cmn-multiselect-contenido {
+      &.is-small,
+      &.is-medium,
+      &.is-large {
+        font-size: $font-size-small;
+      }
+    }
+
+    .erp-cmn-multiselect-elementos {
+      .erp-cmn-multiselect-lista {
+        .erp-cmn-multiselect-item {
+          .erp-cmn-multiselect-item-texto {
+            &.is-small,
+            &.is-medium,
+            &.is-large {
+              font-size: $font-size-small;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: calc(#{$res-1024} + #{$pix-1})) and (max-width: #{$res-1366}) {
+  .erp-cmn-multiselect {
+    .erp-cmn-multiselect-contenido {
+      &.is-small,
+      &.is-medium,
+      &.is-large {
+        font-size: $font-size-medium;
+      }
+    }
+
+    .erp-cmn-multiselect-elementos {
+      .erp-cmn-multiselect-lista {
+        .erp-cmn-multiselect-item {
+          .erp-cmn-multiselect-item-texto {
+            &.is-small,
+            &.is-medium,
+            &.is-large {
+              font-size: $font-size-medium;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: calc(#{$res-1366} + #{$pix-1})) and (max-width: #{$res-1920}) {
+  .erp-cmn-multiselect {
+    .erp-cmn-multiselect-contenido {
+      &.is-small,
+      &.is-medium,
+      &.is-large {
+        font-size: $font-size-large;
+      }
+    }
+
+    .erp-cmn-multiselect-elementos {
+      .erp-cmn-multiselect-lista {
+        .erp-cmn-multiselect-item {
+          .erp-cmn-multiselect-item-texto {
+            &.is-small,
+            &.is-medium,
+            &.is-large {
+              font-size: $font-size-large;
+            }
+          }
+        }
+      }
+    }
+  }
+}

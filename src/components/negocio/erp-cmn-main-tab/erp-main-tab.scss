@@ -1,0 +1,52 @@
+.background {
+    color: #f9f9f9;
+    width: 100%;
+    min-height: 160px;
+    display: inline-block;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.no-active {
+    background-color: #959595;
+    color: #fff;
+}
+
+.div-buttons {
+    display: flex;
+    justify-content: center;
+    .V-Button {
+        width: 160px;
+        height: 44px;
+    }
+}
+
+.content-button {
+    display: inline;
+}
+
+.metodo-btn {
+    width: 180px;
+    height: 38px;
+    display: block;
+    margin-bottom: 0 !important;
+    text-align: center;
+    font-size: 0.8rem;
+    &:focus {
+        border-color: #41b883 !important;
+    }
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.5rem solid #41b883;
+    margin: 0 auto;
+}
+
+.d-none {
+    visibility: hidden !important;
+}

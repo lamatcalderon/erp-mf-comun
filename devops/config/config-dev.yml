@@ -1,0 +1,20 @@
+projects:
+  mfcomun:
+    projectName: "mfcomun"
+    sourceProject: ""
+    enviromentSuffix: "dev"
+    withDeploy: true
+    dockerConfiguration:
+      imageName: ""
+      containerLocalPort: 0
+    artifactConfiguration:
+      repositoryName: "erp-mfcomun-dev"
+      folderDist: "dist"
+    folderDeploy: "apps/intranet/erpperu2-dev/erp-mf-comun"
+    commandsAtInit:
+      - "rm .\\src\\constants\\hostserver.constant.ts"
+      - "mv .\\src\\constants\\hostserver-dev.constant.ts .\\src\\constants\\hostserver.constant.ts"
+
+
+    
+    

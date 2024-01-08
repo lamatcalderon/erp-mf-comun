@@ -1,0 +1,1 @@
+<script src="./v-button.ts" lang="ts"/>
