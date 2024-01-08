@@ -1,42 +1,49 @@
-@Library('shared-library-sreasons@feature-config-yaml')
+@Library('shared-library-sreasons')
 import com.sreasons.PipelineUtil
 
 def utils = new PipelineUtil(steps, this)
-
-node('windows-slave')
-{
-  def parameters = []
-
-  stage("Setting Variables")
+try{
+  node//('windows-slave')
   {
-    parameters = [
-      projectID : "mfcomun",
-    ]
-  }
+    def parameters = []
 
-  stage("Git") 
-  {
-    utils.initialize(parameters)
-  }
-  
-  stage("Quality-Code"){
-    utils.executeSonnarForNode()
-  }
+    stage("Setting Variables")
+    {
+      parameters = [
+        projectID : "weberp",
+      ]
+    }
 
-  stage("Build") 
-  {
-    utils.executeBuildNodeJSApp()             
-    stash includes: '/dist/**/*', name: 'builtSources'
+    stage("Git") 
+    {
+      utils.initialize(parameters)
+    }
+    
+    /*stage("Quality-Code"){
+      //utils.executeSonnarForNode()
+    }
+
+    stage("Build") 
+    {
+      utils.executeBuildNodeJSApp()             
+    }*/
+  //}
+
+
+  //node{
+    /*stage("Release"){
+      utils.executeUploadArtifact()
+    }
+
+    stage("Deploy"){
+      utils.executeDeployWebApplication()    
+    }*/
   }
+  //utils.sendNotificacionRest("")
 }
-
-node{
-  stage("Release"){
-    unstash 'builtSources'
-    utils.executeUploadArtifact()
-  }
-
-  stage("Deploy"){
-    utils.executeDeployLinuxHostingFront()    
-  }
+catch(err)
+{
+  //utils.sendNotificacionRest(err.toString())
+  //steps.echo err.toString()
+  throw err;
 }
